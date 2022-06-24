@@ -13,22 +13,23 @@ function App() {
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("ls") === null)) {
       JSON.stringify(localStorage.setItem("ls", false));
+
       setAuth(JSON.parse(localStorage.getItem("ls")));
-    } else {
+    } 
+    else {
       setAuth(JSON.parse(localStorage.getItem("ls")));
     }
-  }, [localStorage.getItem("ls")]);
+  }, []);
 
   const [auth, setAuth] = useState(JSON.parse(localStorage.getItem("ls")));
-  console.log(auth);
 
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/login" element={<Login setAuth={setAuth} />} />
-          <Route element={<ProtectedRoutes auth={auth} setAuth={setAuth} />}>
+          <Route exact path="/" element={<Login setAuth={setAuth} />} />
+          <Route element={<ProtectedRoutes auth={auth}/>}>
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

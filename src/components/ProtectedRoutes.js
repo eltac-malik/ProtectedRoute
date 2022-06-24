@@ -3,9 +3,9 @@ import {Outlet,Navigate} from 'react-router-dom'
 import Login from './Login'
 
 
-function ProtectedRoutes({auth,setAuth}) {
+function ProtectedRoutes({auth}) {
 
-  return auth == true ? <Outlet/> : <Navigate to="/login"/>
+  return auth == true ? <Outlet/> : <Navigate to="/"/>
 }
 
 export default ProtectedRoutes
